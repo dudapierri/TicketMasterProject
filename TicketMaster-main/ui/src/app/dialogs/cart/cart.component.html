@@ -1,0 +1,25 @@
+<div class="container">
+    <span class="card-title">Cart</span>
+    <div *ngIf="tickets.length > 0" class="tickets">
+        <div *ngFor="let ticket of tickets" style="display: flex; flex-direction: column; margin-bottom: 10px;">
+            <div class="ticket">
+                <img [src]="ticket.image64" alt="" class="image">
+                <div class="ticket-container">
+                    <span class="ticket-name">{{ticket.title}}</span>
+                    <span class="ticket-price">Price ${{ticket.price}}</span>
+                </div>
+            </div>
+            <button class="remove" (click)="removeTicket(ticket)">Remove</button>
+        </div>
+    </div>
+
+    <div *ngIf="tickets.length === 0" style="margin-top: 20%; height: 500px;">
+        <span style="margin: auto; font-size: 1.5rem; color: white">No Events Created</span>
+    </div>
+
+
+    <div class="details">
+        <span class="total">Total: {{getTicketsTotal()}}</span>
+        <button class="buy" [disabled]="this.tickets.length == 0 || userIsAdmin()" (click)="buyTickets()">Buy Tickets</button>
+    </div>
+</div>

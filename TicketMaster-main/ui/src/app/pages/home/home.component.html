@@ -1,0 +1,19 @@
+<div class="container">
+  <ng-container *ngIf="tickets$ | async as tickets">
+    <div class="tickets" *ngIf="tickets.length > 0">
+      <div class="card" *ngFor="let ticket of tickets">
+        <img [src]="ticket.image64" alt="" class="image" (click)="openTicketDialog(ticket)">
+        <mat-icon *ngIf="userIsAdmin()" class="edit-icon" (click)="editTicketEvent(ticket)">edit</mat-icon>
+        <span class="event-title" (click)="openTicketDialog(ticket)">{{ ticket.title }}</span>
+        <button class="add-cart" (click)="addTicketToCart(ticket)"
+          [disabled]="ticket.remaining === 0 || userIsAdmin()">{{
+          ticket.remaining > 0 ? "Add in Cart" : "Out"
+          }}</button>
+      </div>
+    </div>
+
+    <div class="tickets" *ngIf="tickets.length === 0">
+      <span style="margin: auto; margin-top: 20%; font-size: 3rem; font-weight: 500;">No Events Created</span>
+    </div>
+  </ng-container>
+</div>

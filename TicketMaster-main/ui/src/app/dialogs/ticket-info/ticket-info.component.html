@@ -1,0 +1,18 @@
+<div class="container">
+    <img [src]="ticket.image64" alt="" class="image">
+    <div class="details">
+        <span class="name">{{ ticket.title }}</span>
+        <span class="text">{{ ticket.description }}</span>
+        <span class="text">{{ ticket.address }}</span>
+        <span class="text">Ticket Price: ${{ ticket.price }}</span>
+        <div class="two-itens">
+            <span class="text">Event Date: {{formatDateAndTime(this.ticket.eventDate).date}} - &nbsp;</span>
+            <span class="text">{{formatDateAndTime(this.ticket.eventDate).hour}}</span>
+        </div>
+        <span class="text">Capacity: {{ticket.capacity - ticket.remaining}}/{{ticket.capacity}} &nbsp;</span>
+        <div class="two-itens">
+            <span class="text">Contact: {{ getName() }} - &nbsp; </span>
+            <span class="text">{{ getEmail() }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+.container {
+    width: 400px;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 10px;
+    color: white;
+}
+
+
+.image {
+    height: 100%;
+    width: 100%;
+    max-width: 130px;
+    max-height: 125px;
+}
+
+.tickets {
+    max-height: 630px;
+    overflow: auto;
+    height: 630px;
+}
+
+.ticket {
+    width: 350px;
+    border: solid;
+    border-width: 1.5px 1.5px 0 1.5px;
+    display: flex;
+    background: #dfdfdf;
+}
+
+.ticket-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.ticket-price {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.ticket-name {
+    display: block;
+    width: 205px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.remove {
+    border: solid 1px;
+    background: #dfdfdf;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.details {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.buy {
+    border: none;
+    border-radius: 10px;
+    width: 150px;
+    height: 30px;
+    background: #dbdbdb;
+
+}
+
+.total {
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 400;
+}
+
+.buy:hover {
+    background: #f5f5f5;
+}
+
+.buy:active {
+    background: #afafaf;
+}

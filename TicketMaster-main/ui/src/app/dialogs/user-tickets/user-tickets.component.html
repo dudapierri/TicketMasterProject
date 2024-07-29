@@ -1,0 +1,16 @@
+<div class="container">
+  <span class="card-title">Purchases</span>
+  <div class="form">
+    <div *ngFor="let purchase of purchases" class="form-field">
+      <mat-card style="background: #6d6d6d;">
+        <mat-card-title>{{ purchase.eventName }}</mat-card-title>
+        <mat-card-content>
+          <p><strong>Purchase Date:</strong> {{ purchase.purchaseDate | date }}</p>
+          <p><strong>Event Date:</strong> {{ purchase.eventDate | date }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+   
+  </div>
+  <button class="register close-button" (click)="onClose()">Close</button>
+</div>

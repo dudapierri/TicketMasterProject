@@ -1,0 +1,77 @@
+<div class="container">
+    <span class="card-title">Create Event</span>
+    <form class="form">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput name="title" maxlength="200" [(ngModel)]="title">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="7" cdkAutosizeMaxRows="7"
+                [(ngModel)]="description" name="description"></textarea>
+        </mat-form-field>
+
+        <div class="line">
+            <mat-form-field class="form-field-line" appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="date" name="date">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="form-field-line" appearance="outline">
+                <mat-label>Hour</mat-label>
+                <input matInput value="" type="time" [(ngModel)]="hour" name="hour">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput value="" [(ngModel)]="address" name="address">
+        </mat-form-field>
+
+        <div class="line">
+            <mat-form-field class="form-field-line" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput value="" type="text" [(ngModel)]="name" name="name">
+            </mat-form-field>
+            <mat-form-field class="form-field-line" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput value="" type="text" [(ngModel)]="email" name="email">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Price</mat-label>
+            <span matPrefix style="margin: 10px; color: white;">$&nbsp;</span>
+            <input matInput [value]="price" type="number" (input)="updatePrice($event.target)" name="price">
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Capacity</mat-label>
+            <input matInput value="" type="number" [(ngModel)]="capacity" name="capacity">
+        </mat-form-field>
+
+
+        <div class="attach-image">
+            <label for="customFileInput" class="custom-file-upload">
+                Attach Image
+            </label>
+            <input id="customFileInput" type="file" style="display: none;" (change)="handleFileInputChange($event)">
+            <div *ngIf="selectedFileName" style="display: flex; align-items: center;">
+                <span class="image-name">{{ selectedFileName }}</span>
+                <button class="close-image" (click)="deleteSelectedImage()">
+                    <mat-icon>
+                        close
+                    </mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="button" (click)="closeDialog()">Cancel</button>
+            <button class="button" (click)="createEvent()">Create Event</button>
+        </div>
+
+    </form>
+</div>
