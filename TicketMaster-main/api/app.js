@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => console.log('DB connected'))
 	.catch(err => console.error(err));
 
-authentication(app);
+authentication(app); //app
 
 app.use("/auth", require("./controllers/UserController"));
 app.use("/ticket", require("./controllers/TicketController"));
